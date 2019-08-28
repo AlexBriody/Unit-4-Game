@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 #crystal1, #crystal2, #crystal3, #crystal4 {
     width: 200px;
     height: 200px;
