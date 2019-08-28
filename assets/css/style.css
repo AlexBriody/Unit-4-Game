@@ -2,9 +2,14 @@
     box-sizing: border-box;
 }
 
+.jumbotron {
+    margin-bottom: 7px;
+}
 #crystal1, #crystal2, #crystal3, #crystal4 {
     width: 200px;
     height: 200px;
+    border: 2px solid darkblue;
+    margin: 20px;
 }
 
 .jumbotron {
@@ -12,5 +17,9 @@
 }
 
 #mainBody {
+    background-image: url(../../assets/images//royalty-free-stock-images-abstract-swirls-seamless-pattern-background-vector-hand-drawn-curl-elements-blue-image.jpg)
+}
+
+.card {
     background-image: url(../../assets/images//royalty-free-stock-images-abstract-swirls-seamless-pattern-background-vector-hand-drawn-curl-elements-blue-image.jpg)
 }
