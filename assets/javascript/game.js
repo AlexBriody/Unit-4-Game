@@ -21,13 +21,13 @@ $(document).ready(function() {
     $("#crystal1, #crystal2, #crystal3, #crystal4").on("click", function() {
         if (randomNumber === 0) {
         reset();
-        }
+        }//in case player clicks a crystal to start the game
     });
     
     $("#crystal1").on("click", function() {
         if (chosenCrystal1Number) {
             return false;
-        }
+        }//to prevent another random number to be assigned per game
         randomNumber = Math.floor((Math.random() * 12) + 1);
         crystal1Number = randomNumber;
         //alert("crystal 1 = " + crystal1Number);
@@ -37,7 +37,7 @@ $(document).ready(function() {
     $("#crystal2").on("click", function() {
         if (chosenCrystal2Number) {
             return false;
-        }
+        }//to prevent another random number to be assigned per game
         randomNumber = Math.floor((Math.random() * 12) + 1);
         crystal2Number = randomNumber;
         //alert("crystal 2 = " + crystal2Number);
@@ -47,7 +47,7 @@ $(document).ready(function() {
     $("#crystal3").on("click", function() {
         if (chosenCrystal3Number) {
             return false;
-        }
+        }//to prevent another random number to be assigned per game
         randomNumber = Math.floor((Math.random() * 12) + 1);
         crystal3Number = randomNumber;
         //alert("crystal 3 = " + crystal3Number);
@@ -57,7 +57,7 @@ $(document).ready(function() {
     $("#crystal4").on("click", function() {
         if (chosenCrystal4Number) {
             return false;
-        }
+        }//to prevent another random number to be assigned per game
         randomNumber = Math.floor((Math.random() * 12) + 1);
         crystal4Number = randomNumber;
         //alert("crystal 4 = " + crystal4Number);
@@ -65,7 +65,7 @@ $(document).ready(function() {
     });
 
     $("#crystal1").on("click", function() {
-        if (gameOver) {
+        if (gameOver) {//in case player clicks a crystal to start the game
             reset();
         } else
         if ((chosenCrystal1Number === true) && ( playerNumber < targetNumber)) {
@@ -76,9 +76,9 @@ $(document).ready(function() {
     });
 
     $("#crystal2").on("click", function() {
-        if (gameOver) {
+        if (gameOver) {//in case player clicks a crystal to start the game
             reset();
-        } else
+        } else 
         if ((chosenCrystal2Number === true) && ( playerNumber < targetNumber)) {
             playerNumber += crystal2Number;
             $("#playerTotal").text(playerNumber);
@@ -87,7 +87,7 @@ $(document).ready(function() {
     });
 
     $("#crystal3").on("click", function() {
-        if (gameOver) {
+        if (gameOver) {//in case player clicks a crystal to start the game
             reset();
         } else
         if ((chosenCrystal3Number === true) && ( playerNumber < targetNumber)) {
@@ -98,7 +98,7 @@ $(document).ready(function() {
     });
 
     $("#crystal4").on("click", function() {
-        if (gameOver) {
+        if (gameOver) {//in case player clicks a crystal to start the game
             reset();
         } else
         if ((chosenCrystal4Number === true) && ( playerNumber < targetNumber)) {
