@@ -12,14 +12,17 @@ $(document).ready(function() {
     var chosenCrystal2Number = false;
     var chosenCrystal3Number = false;
     var chosenCrystal4Number = false;
+    var gameOver= false;
+    var wins = 0;
+    var losses = 0;
     
-    
+    $("#startButton").on("click", reset);
 
-$("#startButton").on("click", function() {
-    targetNumber = Math.floor((Math.random() * 101) + 19);
-    $("#number-to-guess").text(targetNumber);
-});
-
+    $("#crystal1, #crystal2, #crystal3, #crystal4").on("click", function() {
+        if (randomNumber === 0) {
+        reset();
+        }
+    });
     
     $("#crystal1").on("click", function() {
         if (chosenCrystal1Number) {
@@ -27,7 +30,7 @@ $("#startButton").on("click", function() {
         }
         randomNumber = Math.floor((Math.random() * 12) + 1);
         crystal1Number = randomNumber;
-        alert("crystal 1 = " + crystal1Number);
+        //alert("crystal 1 = " + crystal1Number);
         chosenCrystal1Number = true;
     });
 
@@ -37,7 +40,7 @@ $("#startButton").on("click", function() {
         }
         randomNumber = Math.floor((Math.random() * 12) + 1);
         crystal2Number = randomNumber;
-        alert("crystal 2 = " + crystal2Number);
+        //alert("crystal 2 = " + crystal2Number);
         chosenCrystal2Number = true;
     });
 
@@ -47,7 +50,7 @@ $("#startButton").on("click", function() {
         }
         randomNumber = Math.floor((Math.random() * 12) + 1);
         crystal3Number = randomNumber;
-        alert("crystal 3 = " + crystal3Number);
+        //alert("crystal 3 = " + crystal3Number);
         chosenCrystal3Number = true;
     });
 
@@ -57,56 +60,94 @@ $("#startButton").on("click", function() {
         }
         randomNumber = Math.floor((Math.random() * 12) + 1);
         crystal4Number = randomNumber;
-        alert("crystal 4 = " + crystal4Number);
+        //alert("crystal 4 = " + crystal4Number);
         chosenCrystal4Number = true;
     });
 
     $("#crystal1").on("click", function() {
+        if (gameOver) {
+            reset();
+        } else
         if ((chosenCrystal1Number === true) && ( playerNumber < targetNumber)) {
-            alert("player's number is still less than the target number")
             playerNumber += crystal1Number;
-            alert("the sum is " + playerNumber);
+            $("#playerTotal").text(playerNumber);
+            //alert("the sum is " + playerNumber);
         }
     });
 
     $("#crystal2").on("click", function() {
+        if (gameOver) {
+            reset();
+        } else
         if ((chosenCrystal2Number === true) && ( playerNumber < targetNumber)) {
-            alert("player's number is still less than the target number")
             playerNumber += crystal2Number;
-            alert("the sum is " + playerNumber);
+            $("#playerTotal").text(playerNumber);
+            //alert("the sum is " + playerNumber);
         }
     });
 
     $("#crystal3").on("click", function() {
+        if (gameOver) {
+            reset();
+        } else
         if ((chosenCrystal3Number === true) && ( playerNumber < targetNumber)) {
-            alert("player's number is still less than the target number")
             playerNumber += crystal3Number;
-            alert("the sum is " + playerNumber);
+            $("#playerTotal").text(playerNumber);
+            //alert("the sum is " + playerNumber);
         }
     });
 
     $("#crystal4").on("click", function() {
+        if (gameOver) {
+            reset();
+        } else
         if ((chosenCrystal4Number === true) && ( playerNumber < targetNumber)) {
-            alert("player's number is still less than the target number")
             playerNumber += crystal4Number;
-            alert("the sum is " + playerNumber);
+            $("#playerTotal").text(playerNumber);
+            //alert("the sum is " + playerNumber);
          } 
     });
 
     $("#crystal1, #crystal2, #crystal3, #crystal4").on("click", function() {
         if (playerNumber > targetNumber) {
-            alert("player's number is greater than the target number")
-            alert("Game Over You Lose");
+            $("#playerTotal").text(playerNumber);
+            //alert("The player's number is greater than the target number " + targetNumber);
+            $("#messageToPlayer").text("Sorry! Your total is greater than the target number. You lose!");
+            $("#messageToRestart").text("Click 'Start Game' to match another number.");
+            losses += 1;
+            $("#losses").text(losses);
+            gameOver = true;
          } else if (playerNumber === targetNumber) {
-            alert("player's number is equal to the target number")
-            alert("Game Over You Win! The playerNumber is " + playerNumber);
+            $("#playerTotal").text(playerNumber);
+            //alert("player's number is equal to the target number " + targetNumber);
+            $("#messageToPlayer").text("Congratulations! Your total is equal to the target Number. You win!");
+            $("#messageToRestart").text("Click 'Start Game' to match another number.");
+            wins += 1;
+            $("#wins").text(wins);
+            gameOver = true;
          }
     });
 
+    function reset() {
+        targetNumber = Math.floor((Math.random() * 101) + 19);
+        playerNumber = 0;
+        crystal1Number = 0;
+        crystal2Number = 0;
+        crystal3Number = 0;
+        crystal4Number = 0;
+        chosenCrystal1Number = false;
+        chosenCrystal2Number = false;
+        chosenCrystal3Number = false;
+        chosenCrystal4Number = false;
+        gameOver = false;
+        $("#number-to-guess").text(targetNumber);
+        $("#playerTotal").text("");
+        $("#messageToPlayer").text("Good luck!");
+        $("#messageToRestart").text("");
+    }
 
-
-
-
+   
+    
 
 
 
