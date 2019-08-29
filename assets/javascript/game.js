@@ -17,12 +17,6 @@ $(document).ready(function() {
     var losses = 0;
     
     $("#startButton").on("click", reset);
-
-    $("#crystal1, #crystal2, #crystal3, #crystal4").on("click", function() {
-        if (randomNumber === 0) {
-        reset();
-        }//in case player clicks a crystal to start the game
-    });
     
     $("#crystal1").on("click", function() {
         if (chosenCrystal1Number) {
@@ -65,9 +59,6 @@ $(document).ready(function() {
     });
 
     $("#crystal1").on("click", function() {
-        if (gameOver) {//in case player clicks a crystal to start the game
-            reset();
-        } else
         if ((chosenCrystal1Number === true) && ( playerNumber < targetNumber)) {
             playerNumber += crystal1Number;
             $("#playerTotal").text(playerNumber);
@@ -76,9 +67,6 @@ $(document).ready(function() {
     });
 
     $("#crystal2").on("click", function() {
-        if (gameOver) {//in case player clicks a crystal to start the game
-            reset();
-        } else 
         if ((chosenCrystal2Number === true) && ( playerNumber < targetNumber)) {
             playerNumber += crystal2Number;
             $("#playerTotal").text(playerNumber);
@@ -87,9 +75,6 @@ $(document).ready(function() {
     });
 
     $("#crystal3").on("click", function() {
-        if (gameOver) {//in case player clicks a crystal to start the game
-            reset();
-        } else
         if ((chosenCrystal3Number === true) && ( playerNumber < targetNumber)) {
             playerNumber += crystal3Number;
             $("#playerTotal").text(playerNumber);
@@ -98,9 +83,6 @@ $(document).ready(function() {
     });
 
     $("#crystal4").on("click", function() {
-        if (gameOver) {//in case player clicks a crystal to start the game
-            reset();
-        } else
         if ((chosenCrystal4Number === true) && ( playerNumber < targetNumber)) {
             playerNumber += crystal4Number;
             $("#playerTotal").text(playerNumber);
