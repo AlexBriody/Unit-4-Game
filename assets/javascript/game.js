@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     var randomNumber = 0;
     var targetNumber = 0;
-    var playerNumber = 0;
+    var playerNumber = "";
     var crystal1Number = 0;
     var crystal2Number = 0;
     var crystal3Number = 0;
@@ -19,7 +19,7 @@ $(document).ready(function() {
     $("#startButton").on("click", reset);
     
     $("#crystal1").on("click", function() {
-        if (chosenCrystal1Number) {
+        if (chosenCrystal1Number || gameOver) {
             return false;
         }//to prevent another random number to be assigned per game
         randomNumber = Math.floor((Math.random() * 12) + 1);
@@ -29,7 +29,7 @@ $(document).ready(function() {
     });
 
     $("#crystal2").on("click", function() {
-        if (chosenCrystal2Number) {
+        if (chosenCrystal2Number || gameOver) {
             return false;
         }//to prevent another random number to be assigned per game
         randomNumber = Math.floor((Math.random() * 12) + 1);
@@ -39,7 +39,7 @@ $(document).ready(function() {
     });
 
     $("#crystal3").on("click", function() {
-        if (chosenCrystal3Number) {
+        if (chosenCrystal3Number || gameOver) {
             return false;
         }//to prevent another random number to be assigned per game
         randomNumber = Math.floor((Math.random() * 12) + 1);
@@ -49,7 +49,7 @@ $(document).ready(function() {
     });
 
     $("#crystal4").on("click", function() {
-        if (chosenCrystal4Number) {
+        if (chosenCrystal4Number || gameOver) {
             return false;
         }//to prevent another random number to be assigned per game
         randomNumber = Math.floor((Math.random() * 12) + 1);
@@ -91,6 +91,9 @@ $(document).ready(function() {
     });
 
     $("#crystal1, #crystal2, #crystal3, #crystal4").on("click", function() {
+        if (gameOver) {
+            return false;
+        };
         if (playerNumber > targetNumber) {
             $("#playerTotal").text(playerNumber);
             //alert("The player's number is greater than the target number " + targetNumber);
