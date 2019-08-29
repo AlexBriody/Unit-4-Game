@@ -6,7 +6,7 @@
     width: 200px;
     height: 200px;
     border: 2px solid darkblue;
-    margin: 20px;
+    margin: 40px 20px;
 }
 
 .jumbotron {
@@ -14,9 +14,35 @@
 }
 
 #mainBody {
-    background-image: url(../images//royalty-free-stock-images-abstract-swirls-seamless-pattern-background-vector-hand-drawn-curl-elements-blue-image.jpg)
+    background-image: url(../images//royalty-free-stock-images-abstract-swirls-seamless-pattern-background-vector-hand-drawn-curl-elements-blue-image.jpg);
+    height: 680px;
 }
 
 .card {
     background-image: url(../images//royalty-free-stock-images-abstract-swirls-seamless-pattern-background-vector-hand-drawn-curl-elements-blue-image.jpg)
+}
+
+#startButton {
+    position: fixed;
+    bottom: 0px;
+    height: 75px;
+    font-size: 36px;
+}
+
+.card-header {
+    font-size: 36px;
+}
+
+.card-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.card-text {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.lead {
+    margin-top: 15px;
 }
