@@ -127,8 +127,8 @@ $(document).ready(function() {
         gameOver = false;
         $("#number-to-guess").text(targetNumber);
         $("#playerTotal").text("");
-        $("#messageToPlayer").text("Good luck!");
-        $("#messageToRestart").text("");
+        $("#messageToPlayer").text("Click on a crystal to add a specific amount to your total score. Win the game by matching your score to the");
+        $("#messageToRestart").text(" random target number. Lose the game when your total score goes above the random number. Good luck!");
     }
 
    
