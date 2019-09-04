@@ -4,29 +4,19 @@ $(document).ready(function() {
     var randomNumber = 0;
     var targetNumber = 0;
     var playerNumber = "";
-    var crystal1Number = 0;
     var crystal2Number = 0;
     var crystal3Number = 0;
     var crystal4Number = 0;
-    var chosenCrystal1Number = false;
+    var crystal5Number = 0;
     var chosenCrystal2Number = false;
     var chosenCrystal3Number = false;
     var chosenCrystal4Number = false;
+    var chosenCrystal5Number = false;
     var gameOver= false;
     var wins = 0;
     var losses = 0;
     
     $("#startButton").on("click", reset);
-    
-    $("#crystal1").on("click", function() {
-        if (chosenCrystal1Number || gameOver) {
-            return false;
-        }//to prevent another random number to be assigned per game
-        randomNumber = Math.floor((Math.random() * 12) + 1);
-        crystal1Number = randomNumber;
-        //alert("crystal 1 = " + crystal1Number);
-        chosenCrystal1Number = true;
-    });
 
     $("#crystal2").on("click", function() {
         if (chosenCrystal2Number || gameOver) {
@@ -58,12 +48,14 @@ $(document).ready(function() {
         chosenCrystal4Number = true;
     });
 
-    $("#crystal1").on("click", function() {
-        if ((chosenCrystal1Number === true) && ( playerNumber < targetNumber)) {
-            playerNumber += crystal1Number;
-            $("#playerTotal").text(playerNumber);
-            //alert("the sum is " + playerNumber);
-        }
+    $("#crystal5").on("click", function() {
+        if (chosenCrystal5Number || gameOver) {
+            return false;
+        }//to prevent another random number to be assigned per game
+        randomNumber = Math.floor((Math.random() * 12) + 1);
+        crystal5Number = randomNumber;
+        //alert("crystal 5 = " + crystal1Number);
+        chosenCrystal5Number = true;
     });
 
     $("#crystal2").on("click", function() {
@@ -90,7 +82,15 @@ $(document).ready(function() {
          } 
     });
 
-    $("#crystal1, #crystal2, #crystal3, #crystal4").on("click", function() {
+    $("#crystal5").on("click", function() {
+        if ((chosenCrystal5Number === true) && ( playerNumber < targetNumber)) {
+            playerNumber += crystal5Number;
+            $("#playerTotal").text(playerNumber);
+            //alert("the sum is " + playerNumber);
+        }
+    });
+
+    $("#crystal2, #crystal3, #crystal4, #crystal5").on("click", function() {
         if (gameOver) {
             return false;
         };
@@ -116,14 +116,14 @@ $(document).ready(function() {
     function reset() {
         targetNumber = Math.floor((Math.random() * 101) + 19);
         playerNumber = 0;
-        crystal1Number = 0;
         crystal2Number = 0;
         crystal3Number = 0;
         crystal4Number = 0;
-        chosenCrystal1Number = false;
+        crystal5Number = 0;
         chosenCrystal2Number = false;
         chosenCrystal3Number = false;
         chosenCrystal4Number = false;
+        chosenCrystal5Number = false;
         gameOver = false;
         $("#number-to-guess").text(targetNumber);
         $("#playerTotal").text("");
